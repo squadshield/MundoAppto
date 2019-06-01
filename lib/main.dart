@@ -1,12 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mundoappto/pages/home.dart';
-<<<<<<< HEAD
-// import 'package:mundoappto/pages/home.dart';
-import 'package:mundoappto/pages/pruebaFirebase.dart';
-=======
-//import 'package:mundoappto/pages/pruebaFirebase.dart';
->>>>>>> 22a712f504f299afcdc2e25aff49cacf8696bebf
-
 void main() => runApp(MyApp());
 class MyApp extends StatefulWidget {
   @override
