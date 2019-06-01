@@ -31,8 +31,7 @@ class MapSampleState extends State<MapSample> {
 
   Map<String, double> userLocation;
   @override
-  void initState() {
-    // TODO: implement initState
+  void initState() {    
     super.initState();
     _getLocation().then((value) {
                     setState(() {
