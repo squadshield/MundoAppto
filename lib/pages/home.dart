@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../card_page_dart.dart';
+import 'list_card.dart';
 import 'mapa.dart';
 
 class Home extends StatefulWidget {
@@ -12,7 +12,7 @@ class _HomeState extends State<Home> {
   PageController _pagecontroller;
   int page = 0;
   final List<Widget> _listWidget=[
-    CardPage(),
+    ListCard(),
     MapSample()
   ];
   @override

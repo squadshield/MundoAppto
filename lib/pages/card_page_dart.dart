@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mundoappto/models/ubicacion_model.dart';
 
 class CardPage extends StatelessWidget {
-  const CardPage({Key key}) : super(key: key);
+  final Ubicacion ubicacion;
+  CardPage({this.ubicacion});
 
   @override
   Widget build(BuildContext context) {
