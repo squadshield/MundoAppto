@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "157120210745",
+    "firebase_url": "https://squadshield-8cc9d.firebaseio.com",
+    "project_id": "squadshield-8cc9d",
+    "storage_bucket": "squadshield-8cc9d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:157120210745:android:85c24875b9eae620",
+        "android_client_info": {
+          "package_name": "com.example.mundoappto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "157120210745-055aclcrg483omo9gd3j3nmh8iaqovmo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyL6rjOHsWdFIJCiyUIos86ihbbe9GkSU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "157120210745-055aclcrg483omo9gd3j3nmh8iaqovmo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
