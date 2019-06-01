@@ -3,8 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../providers/listado_provider.dart';
-import 'package:location/location.dart';
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -27,17 +25,10 @@ class MapSampleState extends State<MapSample> {
   BitmapDescriptor _markerIcon;
   final Set<Marker> _markers = Set();
   final miPosicion =LatLng(-11.9959467, -77.0088999);
-  var location = new Location();
-
   Map<String, double> userLocation;
   @override
   void initState() {    
-    super.initState();
-    _getLocation().then((value) {
-                    setState(() {
-                      userLocation = value;
-                    });
-                  });
+    super.initState();    
   }
   final double _zoom = 10;
   static final CameraPosition _kGooglePlex = CameraPosition(
@@ -46,11 +37,6 @@ class MapSampleState extends State<MapSample> {
   );
   var miUbicacion = LatLng(-11.9959467, -77.0088999);
   static final LatLng center = const LatLng(-33.86711, 151.1947171);
-  // static final CameraPosition _kLake = CameraPosition(
-  //     bearing: 192.8334901395799,
-  //     target: LatLng(-11.9959467, -77.0088999),
-  //     tilt: 59.440717697143555,
-  //     zoom: 19.151926040649414);
   MarkerId selectedMarker;
   int numeracion = 0;
    String markerNom="App";
@@ -106,15 +92,5 @@ class MapSampleState extends State<MapSample> {
     // controller.animateCamera(CameraUpdate.newCameraPosition(_kLake));
     var lista = UbicacionProvider().getUbicaciones();
     lista = lista;
-  }
-
-  Future<Map<String, double>> _getLocation() async {
-    var currentLocation = <String, double>{};
-    try {
-      currentLocation = (await location.getLocation()) as Map<String, double>;
-    } catch (e) {
-      currentLocation = null;
-    }
-    return currentLocation;
-  }
+  }  
 }
