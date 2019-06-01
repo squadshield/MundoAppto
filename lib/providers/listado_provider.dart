@@ -4,7 +4,7 @@ import '../models/ubicacion_model.dart';
 import '../models/lugares_model.dart';
 //https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+PERU&key=AIzaSyBuKra5jDVBSEFRi1tlZ_Cww16AXebA0pc
 import 'package:http/http.dart' as http;
-//import 'lugares_provider.dart';
+import 'lugares_provider.dart';
 
 class UbicacionProvider {
   String _url ="maps.googleapis.com";
@@ -23,22 +23,11 @@ class UbicacionProvider {
     });
     
       final resp = await http.get(url);
-      print(resp);
       final decodeData = json.decode(resp.body);
       final ubicaciones = new Ubicaciones.fromJsonList(decodeData["results"]);
       List<Ubicacion> lista = ubicaciones.items;
-      List<Lugares> listaLugares = new List<Lugares>();
-      //var objeto = await getCollectionLugares();
 
-  //objeto = objeto;
-// this.service.getListado(this.rncModel).then(result => {
-//       let listaRnc = result.map(item => {
-//         return {
-//           $key: item.key,
-//           ...item.payload.doc.data()
-//         };
-//       });
-
+      List<Lugares> listaLugares = await getCollectionLugares();
 
        for(var i = 0; i < lista.length; i++){
         var loc = lista[i].id;

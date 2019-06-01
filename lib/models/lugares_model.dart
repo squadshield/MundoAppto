@@ -1,4 +1,4 @@
-class Lugares{
+class Lugares {
   String comentario;
   String descripcion;
   String idMaps;
@@ -7,4 +7,5 @@ class Lugares{
   String nombre;
   String ranking;
   String ubicacion;
+  List<int> tipoServicio; //1:Silla Ruedas; 2:Visual; 3:Auditiva; 4:Movilidad Reducida
 }
