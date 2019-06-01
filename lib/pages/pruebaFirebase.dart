@@ -8,13 +8,42 @@ class PruebaFirebase extends StatefulWidget {
 
 class _PruebaFirebaseState extends State<PruebaFirebase> {
   @override
+  void initState() {
+    getCollection();
+    super.initState();
+  }
+  @override
   Widget build(BuildContext context) {
-    var data = Firestore.instance.collection('usuarios').snapshots();
+
     return Scaffold(
        appBar: AppBar(
        title: Text("PRUEBA FIREBASE"),
       ),
-      body:Container(child: Text(data.first.toString())),
+      body:Container(child: Text("")),
     );
   }
+
+  // String datos (){
+  //   String data ="";
+  //     for (var item in getCollection()) {
+  //       data = item.toString();  
+  //     }       
+     
+  //   return data;
+  // }
+  Future <List<Map<dynamic, dynamic>>> getCollection() async{
+  List<DocumentSnapshot> templist;
+  List<Map<dynamic, dynamic>> list = new List();
+  CollectionReference collectionRef = Firestore.instance.collection("usuarios");
+  QuerySnapshot collectionSnapshot = await collectionRef.getDocuments();
+
+  templist = collectionSnapshot.documents; // <--- ERROR
+
+  list = templist.map((DocumentSnapshot docSnapshot){
+    return docSnapshot.data;
+  }).toList();
+    print(list);
+  return list;
+  }  
+
 }
