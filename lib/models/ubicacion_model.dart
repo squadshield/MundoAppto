@@ -26,6 +26,15 @@ class Ubicacion {
   List<Type> types;
   int userRatingsTotal;
 
+  //Campos adicionales al cruzar contra el servicio FB
+  String comentario;
+  String descripcion;
+  String lng;
+  String lat;
+  String nombre;
+  String ranking;
+  String ubicacion;
+
   Ubicacion({
     this.formattedAddress,
     this.geometry,
@@ -40,7 +49,14 @@ class Ubicacion {
     this.rating,
     this.reference,
     this.types,
-    this.userRatingsTotal 
+    this.userRatingsTotal,
+    this.comentario,
+    this.descripcion,
+    this.lng,
+    this.lat,
+    this.nombre,
+    this.ranking,
+    this.ubicacion,
   });
 
   Ubicacion.fromJsonMap(Map<String,dynamic> json){

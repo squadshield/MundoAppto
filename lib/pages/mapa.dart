@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-//import '../providers/listado_provider.dart';
+import '../providers/listado_provider.dart';
 
 void main() => runApp(MyApp());
 
@@ -87,7 +87,7 @@ class MapSampleState extends State<MapSample> {
   Future<void> _goToTheLake() async {
     final GoogleMapController controller = await _controller.future;
     controller.animateCamera(CameraUpdate.newCameraPosition(_kLake));
-    //var lista = UbicacionProvider().getUbicaciones();
-    //lista = lista;
+    var lista = UbicacionProvider().getUbicaciones();
+    lista = lista;
   }
 }
