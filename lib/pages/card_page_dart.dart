@@ -62,12 +62,12 @@ class CardPage extends StatelessWidget {
                 ),
                 Positioned(
                   right: 5.0,
-                  bottom: 1,
+                  bottom: 25,
                   child: Column(
                     children: <Widget>[
                       Row(
                         children: <Widget>[
-                          Text("Votos"),
+                          Text(""),
                           Container(width: 4.0,),
                           Icon(Icons.star,
                                color: Colors.white,
