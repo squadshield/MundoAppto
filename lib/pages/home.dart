@@ -48,7 +48,7 @@ class _HomeState extends State<Home> {
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.update),
-          title: Text("Mapa")
+          title: Text("Mapas")
         )
       
     ];
