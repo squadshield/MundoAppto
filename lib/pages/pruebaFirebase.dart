@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:mundoappto/providers/lugares_provider.dart';
 
 class PruebaFirebase extends StatefulWidget {
   @override
@@ -9,7 +10,8 @@ class PruebaFirebase extends StatefulWidget {
 class _PruebaFirebaseState extends State<PruebaFirebase> {
   @override
   void initState() {
-    getCollection();
+    //getCollection();
+    getCollectionLugaresID("1");
     super.initState();
   }
   @override
