@@ -65,7 +65,7 @@ class Ubicacion {
 
   Ubicacion.fromJsonMap(Map<String,dynamic> json){
       formattedAddress =  json["formatted_address"];
-      // geometry         =   json["geometry"];
+      geometry         =   Geometry.fromJsonMap(json["geometry"]);
       // icon          = json["icon"];
       id            =json["id"];
       name          = json["name"];
@@ -91,6 +91,10 @@ class Geometry {
     this.location,
     this.viewport,
   });
+
+  Geometry.fromJsonMap(Map<String,dynamic> json){
+    location = Location.fromJsonMap(json["location"]);
+  }
 }
 
 class Location {
@@ -101,6 +105,11 @@ class Location {
     this.lat,
     this.lng,
   });
+
+  Location.fromJsonMap(Map<String,dynamic> json){
+    lat = json["lat"]/1;
+    lng = json["lng"]/1;
+  }
 }
 
 class Viewport {

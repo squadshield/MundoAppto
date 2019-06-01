@@ -59,9 +59,9 @@ class UbicacionProvider {
 
   Future<List<Ubicacion>> getUbicacionesPorRadio(double _latitude, double _longitude, double _radius) async{
 
-    _latitude = -12.13553;
-    _longitude = -77.0223006;
-    _radius = 5000;
+    _latitude = _latitude;
+    _longitude = _longitude;
+    _radius = 500;
 
     final url = Uri.https(_url, "/maps/api/place/nearbysearch/json",{
       'location':_latitude.toString() + ","  + _longitude.toString(),
