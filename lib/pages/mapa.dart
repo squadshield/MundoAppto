@@ -40,7 +40,7 @@ class MapSampleState extends State<MapSample> {
       zoom: 19.151926040649414);
   MarkerId selectedMarker;
   int numeracion = 0;
-   String markerNom="Peru";
+   String markerNom="App";
   @override
   Widget build(BuildContext context) {
           _createMarkerImageFromAsset(context);      
