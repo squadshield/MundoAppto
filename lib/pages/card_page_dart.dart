@@ -62,7 +62,7 @@ class CardPage extends StatelessWidget {
                 ),
                 Positioned(
                   right: 5.0,
-                  bottom: 25,
+                  bottom: 1,
                   child: Column(
                     children: <Widget>[
                       Row(

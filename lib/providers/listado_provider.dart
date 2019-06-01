@@ -8,7 +8,7 @@ import 'lugares_provider.dart';
 
 class UbicacionProvider {
   String _url ="maps.googleapis.com";
-  String _query="restaurants+in+PERU";
+  String _query="restaurants+in+barranco";
   String _key = "AIzaSyBuKra5jDVBSEFRi1tlZ_Cww16AXebA0pc";
 
   // double _latitude = -12.13553;
