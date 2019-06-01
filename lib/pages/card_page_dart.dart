@@ -62,7 +62,7 @@ class CardPage extends StatelessWidget {
                 ),
                 Positioned(
                   right: 5.0,
-                  bottom: 12,
+                  bottom: 1,
                   child: Column(
                     children: <Widget>[
                       Row(
@@ -75,7 +75,7 @@ class CardPage extends StatelessWidget {
                                Icon(Icons.star,
                                color: Colors.white,
                                size: 16.0),
-                               Icon(Icons.star,
+                               Icon(Icons.star, 
                                color: Colors.white,
                                size: 16.0),
                                Icon(Icons.star,
@@ -88,11 +88,14 @@ class CardPage extends StatelessWidget {
                       ),
                       Row(
                         children: <Widget>[
-                          Text( "Texto"),
+                          // Text( "Texto"),
+                          SizedBox(width: 50),
                           Container(width: 4.0,),
-                          Icon(Icons.location_on,
-                               color: Colors.white,
-                               size: 16.0),                       
+                          IconButton(
+                            icon: Icon(Icons.location_on,color: Colors.white,
+                               size: 30.0),
+                            tooltip: 'Increase volume by 10',
+                          ),   
                         ],
                       ),
                     ],
