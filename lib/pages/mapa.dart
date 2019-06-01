@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../providers/listado_provider.dart';
+import 'package:geolocator/geolocator.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -24,33 +25,32 @@ class MapSampleState extends State<MapSample> {
   Completer<GoogleMapController> _controller = Completer();
   BitmapDescriptor _markerIcon;
   final Set<Marker> _markers = Set();
-  final miPosicion =LatLng(-11.9959467, -77.0088999);
-  Map<String, double> userLocation;
+   Position position;
   @override
   void initState() {    
-    super.initState();    
+    super.initState();  
+    // obtenerPosicion();
   }
-  final double _zoom = 10;
-  static final CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(-11.9959467, -77.0088999),
-    zoom: 10,
+
+  // Future obtenerPosicion () async {
+  //   position= await Geolocator().getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+  // }
+  final double _zoom = 17.5;
+  static final CameraPosition miUbicacion = CameraPosition(
+    target: LatLng(-12.13556, -77.0223224),
+    zoom: 15,
   );
-  var miUbicacion = LatLng(-11.9959467, -77.0088999);
-  static final LatLng center = const LatLng(-33.86711, 151.1947171);
   MarkerId selectedMarker;
   int numeracion = 0;
    String markerNom="App";
   @override
   Widget build(BuildContext context) {
           _createMarkerImageFromAsset(context);      
-    return GoogleMap(
+    return Scaffold(
+      body: GoogleMap(
         mapType: MapType.normal,
-        initialCameraPosition: userLocation==null?_kGooglePlex: CameraPosition(
-           target: LatLng(userLocation["latitude"],userLocation["longitude"]),           
-            zoom: 10,
-          ),
+        initialCameraPosition: miUbicacion,
         onMapCreated: (GoogleMapController controller) {
-          
           _controller.complete(controller);
         },
         onTap:(context) async {
@@ -70,7 +70,16 @@ class MapSampleState extends State<MapSample> {
             });
         },        
         markers:_markers,
-      );
+      )
+      ,floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              _goToTheLake();
+            },
+            child: Icon(Icons.location_on,),
+            foregroundColor: Colors.white,
+            backgroundColor: Colors.green,
+          ));
+
   }
    Future<void> _createMarkerImageFromAsset(BuildContext context) async {
     if (_markerIcon == null) {
@@ -86,7 +95,14 @@ class MapSampleState extends State<MapSample> {
       _markerIcon = bitmap;
     });
   }
-  
+  Future<void> _goToTheLake() async {
+    var _position = await Geolocator().getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+    final GoogleMapController controller = await _controller.future;
+    controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
+                    target: LatLng(_position.latitude,_position.longitude),
+                      zoom: 18.5,
+                    )));
+  }
   void test()  {
     // final GoogleMapController controller = await _controller.future;
     // controller.animateCamera(CameraUpdate.newCameraPosition(_kLake));
