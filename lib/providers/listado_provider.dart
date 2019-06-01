@@ -8,8 +8,6 @@ class UbicacionProvider {
   String _query="restaurants+in+PERU";
   String _key = "AIzaSyBuKra5jDVBSEFRi1tlZ_Cww16AXebA0pc";
 
-  //List<Ubicacion> lista = [{""}]
-
   Future<List<Ubicacion>> getUbicaciones() async{
     final url = Uri.https(_url, "/maps/api/place/textsearch/json",{
       'query':_query,
@@ -20,7 +18,12 @@ class UbicacionProvider {
       print(resp);
       final decodeData = json.decode(resp.body);
       final ubicaciones = new Ubicaciones.fromJsonList(decodeData["results"]);
-
+    //   List<Ubicacion> lista = ubicaciones.items;
+    //   for(var i = 0; i < ubicaciones.items.length; i++){
+    //    var loc = ubicaciones.items[i].id;
+    //    loc = loc;
+    //    lista = lista;
+    // }
       
       return ubicaciones.items;
   }

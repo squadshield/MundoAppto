@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mundoappto/pages/home.dart';
+//import 'package:mundoappto/pages/pruebaFirebase.dart';
 
 void main() => runApp(MyApp());
 class MyApp extends StatefulWidget {
@@ -14,7 +15,7 @@ class _MyAppState extends State<MyApp> {
       title: "MundoAppto",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: Colors.yellow),
-      home: Home(),
+      home: Home(),//PruebaFirebase(),
     );
   }
 }
