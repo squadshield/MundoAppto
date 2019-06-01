@@ -1,5 +1,6 @@
 import 'dart:convert';
 import '../models/ubicacion_model.dart';
+import '../models/lugares_model.dart';
 //https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+PERU&key=AIzaSyBuKra5jDVBSEFRi1tlZ_Cww16AXebA0pc
 import 'package:http/http.dart' as http;
 
@@ -18,13 +19,23 @@ class UbicacionProvider {
       print(resp);
       final decodeData = json.decode(resp.body);
       final ubicaciones = new Ubicaciones.fromJsonList(decodeData["results"]);
-    //   List<Ubicacion> lista = ubicaciones.items;
-    //   for(var i = 0; i < ubicaciones.items.length; i++){
-    //    var loc = ubicaciones.items[i].id;
-    //    loc = loc;
-    //    lista = lista;
-    // }
-      
-      return ubicaciones.items;
+      List<Ubicacion> lista = ubicaciones.items;
+      List<Lugares> listaLugares = new List<Lugares>();
+
+       for(var i = 0; i < lista.length; i++){
+        var loc = lista[i].id;
+        for(var tec = 0; tec < listaLugares.length; tec++){
+          if (listaLugares[tec].idMaps == loc){
+            lista[i].comentario = listaLugares[tec].comentario;
+            lista[i].descripcion = listaLugares[tec].descripcion;
+            lista[i].lng = listaLugares[tec].lng;
+            lista[i].lat = listaLugares[tec].lat;
+            lista[i].nombre = listaLugares[tec].nombre;
+            lista[i].ranking = listaLugares[tec].ranking;
+            lista[i].ubicacion = listaLugares[tec].ubicacion;
+          }          
+        }
+     }      
+      return lista;
   }
 }

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../providers/listado_provider.dart';
+import 'package:location/location.dart';
 
 void main() => runApp(MyApp());
 
@@ -25,13 +26,25 @@ class MapSampleState extends State<MapSample> {
   Completer<GoogleMapController> _controller = Completer();
   BitmapDescriptor _markerIcon;
   final Set<Marker> _markers = Set();
-   final double _zoom = 10;
+  final miPosicion =LatLng(-11.9959467, -77.0088999);
+  var location = new Location();
+
+  Map<String, double> userLocation;
+  @override
+  void initState() {    
+    super.initState();
+    _getLocation().then((value) {
+                    setState(() {
+                      userLocation = value;
+                    });
+                  });
+  }
+  final double _zoom = 10;
   static final CameraPosition _kGooglePlex = CameraPosition(
     target: LatLng(-11.9959467, -77.0088999),
     zoom: 10,
   );
   var miUbicacion = LatLng(-11.9959467, -77.0088999);
-  var miUbicacion2 = LatLng(-12.9959467, -77.0088999);
   static final LatLng center = const LatLng(-33.86711, 151.1947171);
   // static final CameraPosition _kLake = CameraPosition(
   //     bearing: 192.8334901395799,
@@ -46,16 +59,19 @@ class MapSampleState extends State<MapSample> {
           _createMarkerImageFromAsset(context);      
     return GoogleMap(
         mapType: MapType.normal,
-        initialCameraPosition: _kGooglePlex,
+        initialCameraPosition: userLocation==null?_kGooglePlex: CameraPosition(
+           target: LatLng(userLocation["latitude"],userLocation["longitude"]),           
+            zoom: 10,
+          ),
         onMapCreated: (GoogleMapController controller) {
+          
           _controller.complete(controller);
         },
         onTap:(context) async {
-            
             numeracion ++;
             String id =markerNom +numeracion.toString();
             final GoogleMapController controller = await _controller.future;
-            controller.animateCamera(CameraUpdate.newLatLngZoom(context, _zoom));
+            controller.animateCamera(CameraUpdate.newLatLngZoom(context, _zoom));            
             setState(() {
               // _markers.clear();
               _markers.add(
@@ -90,5 +106,15 @@ class MapSampleState extends State<MapSample> {
     // controller.animateCamera(CameraUpdate.newCameraPosition(_kLake));
     var lista = UbicacionProvider().getUbicaciones();
     lista = lista;
+  }
+
+  Future<Map<String, double>> _getLocation() async {
+    var currentLocation = <String, double>{};
+    try {
+      currentLocation = (await location.getLocation()) as Map<String, double>;
+    } catch (e) {
+      currentLocation = null;
+    }
+    return currentLocation;
   }
 }
