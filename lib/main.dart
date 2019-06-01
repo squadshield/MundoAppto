@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mundoappto/pages/home.dart';
 
-import 'card_page_dart.dart';
-
 void main() => runApp(MyApp());
 class MyApp extends StatefulWidget {
   @override

@@ -3,7 +3,7 @@ class Ubicaciones{
 
   Ubicaciones();
   Ubicaciones.fromJsonList(List<dynamic> jsonList){
-    if(jsonList =null)return;
+    if(jsonList == null) return;
     for (var item in jsonList) {
       final ubicacion = new Ubicacion.fromJsonMap(item);
       items.add(ubicacion);   
@@ -45,19 +45,19 @@ class Ubicacion {
 
   Ubicacion.fromJsonMap(Map<String,dynamic> json){
       formattedAddress =  json["formatted_address"];
-      geometry         =   json["geometry"];
-      icon          = json["icon"];
+      // geometry         =   json["geometry"];
+      // icon          = json["icon"];
       id            =json["id"];
       name          = json["name"];
-      openingHours  = json["opening_Hours"];
-      photos        = json["photos"];
-      placeId       = json["place_Id"];
-      plusCode      = json["plus_Code"];
-      priceLevel    = json["price_Level"];
-      rating        = json["rating"];
-      reference     = json["reference"];
-      types         = json["types"];
-      userRatingsTotal = json["user_Ratings_Total"];
+      // openingHours  = json["opening_Hours"];
+      // photos        = json["photos"];
+      // placeId       = json["place_Id"];
+      // plusCode      = json["plus_Code"];
+      // priceLevel    = json["price_Level"];
+      // rating        = json["rating"];
+      // reference     = json["reference"];
+      // types         = json["types"];
+      // userRatingsTotal = json["user_Ratings_Total"];
   }
 }
 
