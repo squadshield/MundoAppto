@@ -49,7 +49,8 @@ class CardPage extends StatelessWidget {
                         width: 300,
                         padding: const EdgeInsets.only(top: 4.0),
                         child: Text(
-                          "Generos..",
+                          ubicacion.formattedAddress,
+                          //"Generos..",
                           // media.getGenres(),
                           style: TextStyle(
                             color: Colors.white
@@ -91,7 +92,7 @@ class CardPage extends StatelessWidget {
                         children: <Widget>[
                           Text( "Texto"),
                           Container(width: 4.0,),
-                          Icon(Icons.date_range,
+                          Icon(Icons.location_on,
                                color: Colors.white,
                                size: 16.0),                       
                         ],
