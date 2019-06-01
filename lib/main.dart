@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mundoappto/pages/home.dart';
 
+import 'card_page_dart.dart';
+
 void main() => runApp(MyApp());
 class MyApp extends StatefulWidget {
   @override
@@ -14,7 +16,7 @@ class _MyAppState extends State<MyApp> {
       title: "MundoAppto",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: Colors.yellow),
-      home: Home(),
+      home: CardPage(),
     );
   }
 }
