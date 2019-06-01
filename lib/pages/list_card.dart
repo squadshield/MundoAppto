@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mundoappto/models/ubicacion_model.dart';
 import 'package:mundoappto/providers/listado_provider.dart';
-import 'package:geolocator/geolocator.dart';
+//import 'package:geolocator/geolocator.dart';
 
 import 'card_page_dart.dart';
 

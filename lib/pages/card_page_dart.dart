@@ -95,6 +95,7 @@ class CardPage extends StatelessWidget {
                             icon: Icon(Icons.location_on,color: Colors.white,
                                size: 30.0),
                             tooltip: 'Increase volume by 10',
+                            onPressed: (){},
                           ),   
                         ],
                       ),
