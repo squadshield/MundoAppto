@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../providers/listado_provider.dart';
-import 'package:location/location.dart';
+//import 'package:location/location.dart';
 
 void main() => runApp(MyApp());
 
@@ -27,7 +27,7 @@ class MapSampleState extends State<MapSample> {
   BitmapDescriptor _markerIcon;
   final Set<Marker> _markers = Set();
   final miPosicion =LatLng(-11.9959467, -77.0088999);
-  var location = new Location();
+  //var location = new Location();
 
   Map<String, double> userLocation;
   @override
@@ -111,7 +111,7 @@ class MapSampleState extends State<MapSample> {
   Future<Map<String, double>> _getLocation() async {
     var currentLocation = <String, double>{};
     try {
-      currentLocation = (await location.getLocation()) as Map<String, double>;
+      //currentLocation = (await location.getLocation()) as Map<String, double>;
     } catch (e) {
       currentLocation = null;
     }
