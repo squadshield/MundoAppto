@@ -28,7 +28,8 @@ dependencies:
   firebase_core: ^0.4.0  # add dependency for Firebase Core
   firebase_database: ^3.0.2
   firebase_storage: ^3.0.0
-
+  location: ^2.3.5
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
