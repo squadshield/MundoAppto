@@ -16,7 +16,7 @@ class _MyAppState extends State<MyApp> {
       title: "MundoAppto",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: Colors.yellow),
-      home: CardPage(),
+      home: Home(),
     );
   }
 }
