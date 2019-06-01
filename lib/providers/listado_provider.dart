@@ -15,9 +15,9 @@ class UbicacionProvider {
     });
     
       final resp = await http.get(url);
-
+      print(resp);
       final decodeData = json.decode(resp.body);
-      print(decodeData);
-      return [];
+      final ubicaciones = new Ubicaciones.fromJsonList(decodeData["results"]);
+      return ubicaciones.items;
   }
 }
