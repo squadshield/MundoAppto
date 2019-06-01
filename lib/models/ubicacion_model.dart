@@ -18,6 +18,7 @@ class Ubicacion {
   String name;
   OpeningHours openingHours;
   List<Photo> photos;
+  String photoReference;
   String placeId;
   PlusCode plusCode;
   int priceLevel;
@@ -66,7 +67,8 @@ class Ubicacion {
       id            =json["id"];
       name          = json["name"];
       // openingHours  = json["opening_Hours"];
-      // photos        = json["photos"];
+      photos        = Photo.fromJsonList(json["photos"]).items;
+      photoReference = Photo.fromJsonList(json["photos"]).photoReference;
       // placeId       = json["place_Id"];
       // plusCode      = json["plus_Code"];
       // priceLevel    = json["price_Level"];
@@ -128,6 +130,21 @@ class Photo {
     this.photoReference,
     this.width,
   });
+
+ Photo.fromJsonMap(Map<String,dynamic> json){
+    photoReference = json["photo_reference"];     
+  } 
+
+  List<Photo> items =  new List();
+
+  Photo.fromJsonList(List<dynamic> jsonList){ 
+    if(jsonList ==null)return;
+    for (var item in jsonList) {
+      final photo = new Photo.fromJsonMap(item);
+      items.add(photo);   
+    }
+}
+
 }
 
 class PlusCode {

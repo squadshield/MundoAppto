@@ -18,12 +18,12 @@ class UbicacionProvider {
       print(resp);
       final decodeData = json.decode(resp.body);
       final ubicaciones = new Ubicaciones.fromJsonList(decodeData["results"]);
-      List<Ubicacion> lista = ubicaciones.items;
-      for(var i = 0; i < ubicaciones.items.length; i++){
-       var loc = ubicaciones.items[i].id;
-       loc = loc;
-       lista = lista;
-    }
+    //   List<Ubicacion> lista = ubicaciones.items;
+    //   for(var i = 0; i < ubicaciones.items.length; i++){
+    //    var loc = ubicaciones.items[i].id;
+    //    loc = loc;
+    //    lista = lista;
+    // }
       
       return ubicaciones.items;
   }

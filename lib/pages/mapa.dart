@@ -47,11 +47,11 @@ class MapSampleState extends State<MapSample> {
   );
   var miUbicacion = LatLng(-11.9959467, -77.0088999);
   static final LatLng center = const LatLng(-33.86711, 151.1947171);
-  static final CameraPosition _kLake = CameraPosition(
-      bearing: 192.8334901395799,
-      target: LatLng(-11.9959467, -77.0088999),
-      tilt: 59.440717697143555,
-      zoom: 19.151926040649414);
+  // static final CameraPosition _kLake = CameraPosition(
+  //     bearing: 192.8334901395799,
+  //     target: LatLng(-11.9959467, -77.0088999),
+  //     tilt: 59.440717697143555,
+  //     zoom: 19.151926040649414);
   MarkerId selectedMarker;
   int numeracion = 0;
    String markerNom="App";
@@ -102,9 +102,9 @@ class MapSampleState extends State<MapSample> {
     });
   }
   
-  Future<void> _goToTheLake() async {
-    final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(_kLake));
+  void test()  {
+    // final GoogleMapController controller = await _controller.future;
+    // controller.animateCamera(CameraUpdate.newCameraPosition(_kLake));
     var lista = UbicacionProvider().getUbicaciones();
     lista = lista;
   }
