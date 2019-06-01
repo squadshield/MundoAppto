@@ -29,7 +29,6 @@ class _ListaUbicacionesState extends State<ListCard> {
   // }
 
   void loadUbicaciones() async{
-
     //var _position = await Geolocator().getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
     var media = await ubicacionProvider.getUbicaciones();
     //var media = await ubicacionProvider.getUbicacionesPorRadio(_position.latitude, _position.longitude, 0);
