@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:mundoappto/models/ubicacion_model.dart';
 
@@ -13,7 +15,8 @@ class CardPage extends StatelessWidget {
           Container(
             child:Stack(
               children: <Widget>[
-                Image.network("https://www.laespanolaaceites.com/uploads/recetas/fotos/pizza-con-chorizo-jamon-y-queso.jpg"),
+                //Image.memory(Uint8List.fromList(ubicacion.photos.first.photoReference.codeUnits)),
+                Image.network("https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="+ubicacion.photos.first.photoReference+"&key=AIzaSyBuKra5jDVBSEFRi1tlZ_Cww16AXebA0pc"),
                 Positioned(
                   left: 0.0,
                   bottom: 0.0,
@@ -23,7 +26,7 @@ class CardPage extends StatelessWidget {
                       color: Colors.grey[900].withOpacity(0.5)
                     ),
                     constraints: BoxConstraints.expand(
-                      height: 55.0
+                      height: 70.0 //55
                     ),
                   ),
                 ),
@@ -35,7 +38,7 @@ class CardPage extends StatelessWidget {
                     children: <Widget>[
                       Container(
                         child: Text(
-                          "Bembos Miraflores",
+                          ubicacion.name,
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.white
