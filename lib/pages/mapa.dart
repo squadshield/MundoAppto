@@ -51,11 +51,10 @@ class MapSampleState extends State<MapSample> {
           _controller.complete(controller);
         },
         onTap:(context) async {
-            
             numeracion ++;
             String id =markerNom +numeracion.toString();
             final GoogleMapController controller = await _controller.future;
-            controller.animateCamera(CameraUpdate.newLatLngZoom(context, _zoom));
+            controller.animateCamera(CameraUpdate.newLatLngZoom(context, _zoom));            
             setState(() {
               // _markers.clear();
               _markers.add(
