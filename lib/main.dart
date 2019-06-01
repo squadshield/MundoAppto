@@ -12,7 +12,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: "MundoAppto",
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primaryColor: Colors.yellow),
+      theme: ThemeData(primaryColor: Colors.green),
       home: Home(),//PruebaFirebase(),
     );
   }
