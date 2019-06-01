@@ -26,6 +26,8 @@ class Ubicacion {
   String reference;
   List<Type> types;
   int userRatingsTotal;
+  List<int> tipoServicio; //1:Silla Ruedas; 2:Visual; 3:Auditiva; 4:Movilidad Reducida
+
 
   //Campos adicionales al cruzar contra el servicio FB
   String comentario;
@@ -58,6 +60,7 @@ class Ubicacion {
     this.nombre,
     this.ranking,
     this.ubicacion,
+    this.tipoServicio
   });
 
   Ubicacion.fromJsonMap(Map<String,dynamic> json){
