@@ -28,11 +28,11 @@ class _HomeState extends State<Home> {
     super.dispose();
   }
 
-  Choice _selectedChoice = choices[0]; // The app's "state".
+  // Choice _selectedChoice = choices[0]; // The app's "state".
   void _select(Choice choice) {
     // Causes the app to rebuild with the new _selectedChoice.
     setState(() {
-      _selectedChoice = choice;
+      // _selectedChoice = choice;
     });
   }
 
