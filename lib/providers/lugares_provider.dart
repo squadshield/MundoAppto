@@ -32,20 +32,21 @@ Future <List<Lugares>> getCollectionLugares() async{
     return lis;
   }
 
-  //método para listar los lugares, se puede aplicar filtros
-Future <List<Map<dynamic, dynamic>>> getCollectionLugaresID(String id) async{
+// Future <List<Lugares>> getCollectionLugaresID() async{
+    
+//     var data = new List<Lugares>();
 
-    List<DocumentSnapshot> templist;
-    List<Map<dynamic, dynamic>> list = new List();
+//      CollectionReference collectionRef = Firestore.instance.collection("lugares");
+//     QuerySnapshot collectionSnapshot = await collectionRef.getDocuments();
 
-    CollectionReference collectionRef = Firestore.instance.collection("lugares");
-    QuerySnapshot collectionSnapshot = await collectionRef.getDocuments();
+//     var templist = collectionSnapshot.documents;
 
-    templist = collectionSnapshot.documents; // <--- ERROR
+//     // for (var item in templist) {
+      
+      
+      
 
-    list = templist.map((DocumentSnapshot docSnapshot){
-      return docSnapshot.data;
-    }).toList();
-     print(list);
-    return list;
-  }
+//     // }
+
+//     return data;
+// }

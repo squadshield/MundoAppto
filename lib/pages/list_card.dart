@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mundoappto/models/ubicacion_model.dart';
 import 'package:mundoappto/providers/listado_provider.dart';
+// import 'package:geolocator/geolocator.dart';
 
 import 'card_page_dart.dart';
 
@@ -28,7 +29,11 @@ class _ListaUbicacionesState extends State<ListCard> {
   // }
 
   void loadUbicaciones() async{
-    var media = await ubicacionProvider.getUbicaciones();
+
+    // var _position = await Geolocator().getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+    // LatLng(_position.latitude,_position.longitude);
+    //var media = await ubicacionProvider.getUbicaciones();
+    var media = await ubicacionProvider.getUbicacionesPorRadio(0, 0, 0);
     setState(() { 
       _media.addAll(media); 
     });
