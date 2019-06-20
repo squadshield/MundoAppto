@@ -15,7 +15,9 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: "MundoAppto",
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primaryColor: Colors.green),
+      theme: ThemeData(primaryColor: Colors.blueAccent,
+                       primaryColorLight: Colors.lightBlue,
+      ),
       home: Home(),
     );
   }

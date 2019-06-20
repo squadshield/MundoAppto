@@ -80,7 +80,7 @@ class MapSampleState extends State<MapSample> {
             },
             child: Icon(Icons.location_on,),
             foregroundColor: Colors.white,
-            backgroundColor: Colors.green,
+            backgroundColor:  Theme.of(context).primaryColor,
           ));
 
   }

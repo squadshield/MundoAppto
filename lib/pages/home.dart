@@ -76,6 +76,9 @@ class _HomeState extends State<Home> {
           items: _getFooterItems(),
           currentIndex: page,
           onTap: _navigationTapped,
+          backgroundColor: Theme.of(context).primaryColorLight,
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.black,
         )
     );
   }
@@ -84,14 +87,14 @@ class _HomeState extends State<Home> {
   List<BottomNavigationBarItem> _getFooterItems(){
     return [ 
         BottomNavigationBarItem(
-          icon: Icon(Icons.thumb_up),
+          icon: Icon(Icons.location_city,size: 30),
           title: Text("Lugares")
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.update),
-          title: Text("Mapas")
-        )
-      
+          icon: Icon(Icons.location_on,size: 30),
+          title: Text("Mapas"),
+          backgroundColor: Colors.red
+        ) 
     ];
   }
   
