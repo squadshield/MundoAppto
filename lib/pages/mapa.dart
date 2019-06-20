@@ -116,14 +116,14 @@ class MapSampleState extends State<MapSample> {
   void loadUbicaciones() async{
     var media = await ubicacionProvider.getUbicaciones();
     setState(() { 
-      _media.addAll(media); 
+      _media.addAll(media);  
       for (var item in media) {
         _markers.add(
                     Marker(
-                        markerId: MarkerId(item.id),
-                        position:  LatLng(item.lat as double,item.lng as double),
+                        markerId: MarkerId(item.hashCode.toString()),
+                        position:  LatLng(item.geometry.location.lat,item.geometry.location.lng),
                         icon: _markerIcon,
-                        infoWindow: InfoWindow(title: item.name,  snippet: item.id)),
+                        infoWindow: InfoWindow(title: item.name,  snippet: item.formattedAddress??"")),
                   );
       }
     });
