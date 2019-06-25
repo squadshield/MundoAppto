@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:mundoappto/models/ubicacion_model.dart';
 
+class ScreenArguments {
+  final String title;
+  final String message;
+
+  ScreenArguments(this.title, this.message);
+}
+
 class CardPage extends StatelessWidget {
   final Ubicacion ubicacion;
   CardPage({this.ubicacion});
@@ -94,8 +101,10 @@ class CardPage extends StatelessWidget {
                           IconButton(
                             icon: Icon(Icons.location_on,color: Colors.white,
                                size: 30.0),
-                            tooltip: 'Increase volume by 10',
-                            onPressed: (){},
+                            tooltip: 'Ubicacion del lugar',
+                            onPressed: (){
+                             Navigator.of(context).pushNamed('/mapa',arguments: ScreenArguments("esListado","1"));          
+                            },
                           ),   
                         ],
                       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mundoappto/pages/home.dart';
+import 'package:mundoappto/pages/mapa.dart';
 //import 'package:mundoappto/pages/pruebaFirebase.dart';
 
 void main() => runApp(MyApp());
@@ -19,6 +20,9 @@ class _MyAppState extends State<MyApp> {
                        primaryColorLight: Colors.lightBlue,
       ),
       home: Home(),
+      routes: {
+        "/mapa":(context) => MapSample()
+      }
     );
   }
 }

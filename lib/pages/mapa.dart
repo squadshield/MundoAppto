@@ -5,17 +5,8 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:mundoappto/models/ubicacion_model.dart';
 import '../providers/listado_provider.dart';
 import 'package:geolocator/geolocator.dart';
-void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Google Maps Demo',
-      home: MapSample(),
-    );
-  }
-}
+import 'card_page_dart.dart';
 
 class MapSample extends StatefulWidget {
   @override
@@ -28,31 +19,34 @@ class MapSampleState extends State<MapSample> {
   final Set<Marker> _markers = Set();
   UbicacionProvider ubicacionProvider = new UbicacionProvider();
    Position position;
-
    List<Ubicacion> _media = List();
-   
+   final double _zoom = 17.5;
+   static CameraPosition miUbicacion = CameraPosition(
+     target: LatLng(-12.13556, -77.0223224),
+     zoom: 15,
+   ); 
   @override
   void initState() {    
     super.initState();  
     loadUbicaciones();
+    obtenerMiPosicion();
   }
-
-  
-  final double _zoom = 17.5;
-  static final CameraPosition miUbicacion = CameraPosition(
-    target: LatLng(-12.13556, -77.0223224),
-    zoom: 15,
-  );
   MarkerId selectedMarker;
+  int valor=0;
   int numeracion = 0;
    String markerNom="App";
   @override
   Widget build(BuildContext context) {
           _createMarkerImageFromAsset(context);      
+          final ScreenArguments args = ModalRoute.of(context).settings.arguments;
+          if(args!=null){
+            valor=  int.parse(args.message);
+          }
     return Scaffold(
+      appBar: valor==0?null:AppBar(),
       body: GoogleMap(
         mapType: MapType.normal,
-        initialCameraPosition: miUbicacion,
+        initialCameraPosition:miUbicacion,
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);
         },
@@ -98,6 +92,15 @@ class MapSampleState extends State<MapSample> {
       _markerIcon = bitmap;
     });
   }
+
+  void obtenerMiPosicion() async {
+    var _position = await Geolocator().getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+      miUbicacion = CameraPosition(
+        target: LatLng(_position.latitude,_position.longitude),
+        zoom: 18.5,
+      );
+  }  
+
   Future<void> _goToTheLake() async {
     var _position = await Geolocator().getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
     final GoogleMapController controller = await _controller.future;
